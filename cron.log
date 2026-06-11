@@ -1,0 +1,5 @@
+nohup: ignoring input
+  File "/usb/agenda/cron.py", line 56
+    )
+    ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '{' on line 53
