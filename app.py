@@ -14,9 +14,9 @@ db = SQLAlchemy(app)
 
 # --- CONFIGURACIÓN DE ACCESO DE SEGURIDAD ---
 # Contraseña de acceso por defecto (en producción usa hashes reales)
-PASSWORD_HASH = generate_password_hash("TuContraseñaSegura")
+PASSWORD_HASH = "scrypt:32768:8:1$hxlejYJbytJkrb1e$cb4f204ba86359b911f08ef20c65edf365766851cea478499d4efe723e6103ae5552279f91c4efd24ce8fb98e1ff05728c569f5bbe4bef84bf726b2e099e2b8d"
 # Clave base32 aleatoria para el 2FA (Guárdala bien. Puedes generar otra con pyotp.random_base32())
-TOTP_SECRET = "MZXW6YTBOIQQQQQQQQQQQQQQQQQQQQQQ" 
+TOTP_SECRET = "MZXW6YTBOIQ"
 
 # Configuración del canal de ntfy
 NTFY_URL = "https://ntfy.sh/mi_agenda_raspi"
@@ -119,7 +119,7 @@ def index():
                     <h3><i class="fas fa-plus"></i> Programar Nueva Alerta</h3>
                     <form action="/add" method="POST">
                         <div class="grid">
-                            <input type="text" name="titulo" placeholder="Título del evento (Ej: Clase Forense)" required>
+                            <input type="text" name="titulo" placeholder="Título del evento (Ej: Clase máster)" required>
                             <input type="datetime-local" name="fecha_hora" required>
                         </div>
                         <textarea name="mensaje" placeholder="Mensaje descriptivo que llegará al móvil..." rows="2" required></textarea>
