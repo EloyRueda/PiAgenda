@@ -147,3 +147,496 @@ Port 5002 is in use by another program. Either identify and stop that program, o
 192.168.0.150 - - [14/Jun/2026 18:02:02] "GET / HTTP/1.1" 200 -
 192.168.0.150 - - [14/Jun/2026 18:02:42] "[32mPOST /add HTTP/1.1[0m" 302 -
 192.168.0.150 - - [14/Jun/2026 18:02:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:22:05] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:22:05] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:22:06] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [14/Jun/2026 18:23:11] "[35m[1mPOST /login HTTP/1.0[0m" 500 -
+Traceback (most recent call last):
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/app.py", line 45, in login
+    if totp.verify(code):
+       ^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 84, in verify
+    return utils.strings_equal(str(otp), str(self.at(for_time)))
+                                             ^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 56, in at
+    return self.generate_otp(self.timecode(for_time) + counter_offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 35, in generate_otp
+    hasher = hmac.new(self.byte_secret(), self.int_to_bytestring(input), self.digest)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 52, in byte_secret
+    return base64.b32decode(secret, casefold=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 254, in b32decode
+    return _b32decode(_b32alphabet, s, casefold, map01)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 240, in _b32decode
+    raise binascii.Error('Incorrect padding')
+binascii.Error: Incorrect padding
+127.0.0.1 - - [14/Jun/2026 18:23:11] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:23:11] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:23:11] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:23:38] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:23:39] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [14/Jun/2026 18:23:45] "[32mGET /logout HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:23:45] "GET /login HTTP/1.0" 200 -
+192.168.0.150 - - [14/Jun/2026 18:23:55] "GET /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:24:12] "GET /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:24:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.0.150 - - [14/Jun/2026 18:24:40] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/app.py", line 45, in login
+    if totp.verify(code):
+       ^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 84, in verify
+    return utils.strings_equal(str(otp), str(self.at(for_time)))
+                                             ^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 56, in at
+    return self.generate_otp(self.timecode(for_time) + counter_offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 35, in generate_otp
+    hasher = hmac.new(self.byte_secret(), self.int_to_bytestring(input), self.digest)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 52, in byte_secret
+    return base64.b32decode(secret, casefold=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 254, in b32decode
+    return _b32decode(_b32alphabet, s, casefold, map01)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 240, in _b32decode
+    raise binascii.Error('Incorrect padding')
+binascii.Error: Incorrect padding
+192.168.0.150 - - [14/Jun/2026 18:24:40] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:24:40] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:24:40] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:25:06] code 400, message Bad request version ('ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sªª\x00\x00\x00#\x00\x00\x00')
+192.168.0.150 - - [14/Jun/2026 18:25:06] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03#þk\x19ÂHúÇ)s\x0bO õ¤dÍfÊ=\x1dt\x91\x0dR\x9e\x96?\x89\x88ç· \x19$(õ×Ä×ºËX\x82\x04Lø¾IªÊçy-;£*{8=´vz\x1c\x87\x00 ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sªª\x00\x00\x00#\x00\x00\x00[0m" 400 -
+192.168.0.150 - - [14/Jun/2026 18:25:06] code 400, message Bad request version ('Ï%Ì')
+192.168.0.150 - - [14/Jun/2026 18:25:06] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03úÚIì(\x99A\x02(ö\x96\x1f°,\x89ð\x93Q\x8f\x8d\x0c\x0fu¨doUø¯qçì ÝìÙ¦¹ä*F/v\x85ÚHÜG\x90c§.V\x0c8\x9f\x04\x05\x9c\x8aß0k\x8fc\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x8a\x8a\x00\x00\x00+\x00\x07\x06ZZ\x03\x04\x03\x03DÍ\x00\x05\x00\x03\x02h2\x00\x12\x00\x00\x00\x0b\x00\x02\x01\x00\x00#\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1þ\x0d\x01\x1a\x00\x00\x01\x00\x01Ú\x00 \x95xC\x8b;+\x10\x0c\x9e\x12éß\x8f\x1bO°ï«$Óµ!\x86°Ê\x16îïÍk\x1f\x01\x00ðDeþê\x85_\x89°~ÈLôÐT+0w¤ôIZ\x03Ô9´ªá¶×$\x8b»Rÿ3NËÔ/|©²\x8b2'a¥çÍã¥\x1b¹\x08Aî«\x84òZ½Æ¹áwh!à â\x95n!\x97àgR§C2O\x95·ÄV rÜ\x191¶\x1bo\x84(°Xd®\x13µ\x1b\x054.ã\x97g\x96+b[ýË\x9bH®0o\x09\x03úaº\x13Úq\x16GhF{$\x99é¾XÒh\x86´ë yÓ\x1bÇ\x99G°nx&\x03®\x12ÅÀJS=@\x06º\x0fâoäK\x1eWN\x1fKé¹)Ñ\x91ßeÙ§Ââ%\x12LY\x9a¡ÿCP ¤ú\x1emnFQà\x09Ø¾©X)V\x9beî\x8eïÉ\x1b´è}\x98ÄíÇüËRÄ]lùÛå¢Â\x1aDßÿ2\x003\x04ï\x04íJJ\x00\x01\x00\x11ì\x04ÀñP_ç+d\x04P¿Y\x18¢Ý\x06¨\x9d\x17SJ\x050_°B19¬\x8d \x0bÂe+¿°X\x1b\x0c\x87°å¿MÀK[\x92@µ@\x1cü\x80A\x0bED ´feÛq\x19uÈY\x09Ï%Ì[0m" 400 -
+192.168.0.150 - - [14/Jun/2026 18:25:11] "GET /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:25:59] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/app.py", line 45, in login
+    if totp.verify(code):
+       ^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 84, in verify
+    return utils.strings_equal(str(otp), str(self.at(for_time)))
+                                             ^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 56, in at
+    return self.generate_otp(self.timecode(for_time) + counter_offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 35, in generate_otp
+    hasher = hmac.new(self.byte_secret(), self.int_to_bytestring(input), self.digest)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 52, in byte_secret
+    return base64.b32decode(secret, casefold=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 254, in b32decode
+    return _b32decode(_b32alphabet, s, casefold, map01)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 240, in _b32decode
+    raise binascii.Error('Incorrect padding')
+binascii.Error: Incorrect padding
+192.168.0.150 - - [14/Jun/2026 18:25:59] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:25:59] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:25:59] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/usb/agenda/base32.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Detected change in '/usb/agenda/base32.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.100:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+192.168.0.150 - - [14/Jun/2026 18:36:43] "GET /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:37:23] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/app.py", line 45, in login
+    if totp.verify(code):
+       ^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 84, in verify
+    return utils.strings_equal(str(otp), str(self.at(for_time)))
+                                             ^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/totp.py", line 56, in at
+    return self.generate_otp(self.timecode(for_time) + counter_offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 35, in generate_otp
+    hasher = hmac.new(self.byte_secret(), self.int_to_bytestring(input), self.digest)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usb/agenda/venv/lib/python3.11/site-packages/pyotp/otp.py", line 52, in byte_secret
+    return base64.b32decode(secret, casefold=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 254, in b32decode
+    return _b32decode(_b32alphabet, s, casefold, map01)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/base64.py", line 240, in _b32decode
+    raise binascii.Error('Incorrect padding')
+binascii.Error: Incorrect padding
+192.168.0.150 - - [14/Jun/2026 18:37:24] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+192.168.0.150 - - [14/Jun/2026 18:37:24] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+192.168.0.150 - - [14/Jun/2026 18:37:24] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.100:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+192.168.0.150 - - [14/Jun/2026 18:39:44] "POST /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:39:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.0.150 - - [14/Jun/2026 18:40:14] "POST /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:40:38] "POST /login HTTP/1.1" 200 -
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.100:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+192.168.0.150 - - [14/Jun/2026 18:41:27] "POST /login HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:41:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.0.150 - - [14/Jun/2026 18:41:41] "POST /login HTTP/1.1" 200 -
+192.168.0.103 - - [14/Jun/2026 18:43:15] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.0.103 - - [14/Jun/2026 18:43:15] "GET /login HTTP/1.1" 200 -
+192.168.0.103 - - [14/Jun/2026 18:43:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.0.103 - - [14/Jun/2026 18:43:26] "GET /login HTTP/1.1" 200 -
+192.168.0.103 - - [14/Jun/2026 18:43:55] "GET /setup-2fa HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:44:16] "GET /setup-2fa HTTP/1.1" 200 -
+192.168.0.150 - - [14/Jun/2026 18:45:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.0.150 - - [14/Jun/2026 18:45:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:46:02] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:46:02] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [14/Jun/2026 18:46:17] "[32mGET /logout HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:46:17] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:46:39] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:46:59] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:46:59] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:49:41] "[32mGET /logout HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:49:41] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:49:55] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:50:09] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [14/Jun/2026 18:50:09] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:50:38] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:52:00] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [14/Jun/2026 18:54:55] "GET / HTTP/1.0" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [15/Jun/2026 06:20:20] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 06:20:20] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 06:20:20] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [15/Jun/2026 06:20:52] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 06:20:52] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 16:23:53] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 16:23:54] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 16:23:54] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [15/Jun/2026 16:24:27] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 16:24:27] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 16:25:16] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 16:25:16] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 16:26:17] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 16:26:17] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 16:26:54] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 16:26:54] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 18:20:03] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [15/Jun/2026 18:39:28] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [15/Jun/2026 18:39:28] "GET / HTTP/1.0" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [16/Jun/2026 17:57:55] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [16/Jun/2026 17:57:55] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [16/Jun/2026 17:57:55] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [16/Jun/2026 17:58:47] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [16/Jun/2026 17:58:47] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [16/Jun/2026 18:26:12] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [16/Jun/2026 18:26:12] "GET / HTTP/1.0" 200 -
+192.168.0.150 - - [16/Jun/2026 18:27:06] "GET /login HTTP/1.1" 200 -
+192.168.0.150 - - [16/Jun/2026 18:27:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [17/Jun/2026 08:06:10] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 08:06:10] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:06:11] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [17/Jun/2026 08:06:42] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:07:00] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:07:17] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:11:00] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:11:13] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 08:12:15] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 09:10:46] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 09:10:46] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 09:15:57] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 09:15:57] "GET / HTTP/1.0" 200 -
+/usb/agenda/app.py:158: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  evento = Evento.query.get_or_create(id)[0] if hasattr(Evento.query, 'get_or_create') else Evento.query.get(id)
+127.0.0.1 - - [17/Jun/2026 09:27:24] "[32mGET /delete/5 HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 09:27:24] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 09:27:25] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [17/Jun/2026 09:27:47] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 09:27:47] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 09:29:27] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 09:29:27] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 11:22:02] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 11:35:44] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 11:42:50] "[32mPOST /add HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 11:42:50] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 11:42:54] "GET / HTTP/1.0" 200 -
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+  File "/usb/agenda/app.py", line 185
+    if __name__ == '__main__':
+    ^^
+SyntaxError: invalid syntax
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.100:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [17/Jun/2026 12:02:03] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 12:02:05] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+ * Detected change in '/usb/agenda/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.0.100:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [17/Jun/2026 12:04:28] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 12:04:28] "GET /favicon.ico HTTP/1.0" 200 -
+127.0.0.1 - - [17/Jun/2026 12:11:10] "[32mGET /logout HTTP/1.0[0m" 302 -
+127.0.0.1 - - [17/Jun/2026 12:11:10] "GET /login HTTP/1.0" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 748-450-406
+127.0.0.1 - - [18/Jun/2026 09:21:14] "[32mGET / HTTP/1.0[0m" 302 -
+127.0.0.1 - - [18/Jun/2026 09:21:14] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [18/Jun/2026 09:21:43] "[32mPOST /login HTTP/1.0[0m" 302 -
+127.0.0.1 - - [18/Jun/2026 09:21:43] "GET / HTTP/1.0" 200 -

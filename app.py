@@ -1,22 +1,23 @@
-from flask import Flask, render_template_string, request, redirect, url_for, session, flash
+from flask import Flask, render_template_string, render_template,request, redirect, url_for, session, flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 import pyotp
 import qrcode
 import io
 import base64
 import requests
-from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 app = Flask(__name__)
-app.secret_key = 'CAMBIA_ESTO_POR_UNA_CLAVE_SUPER_SECRETA' # Clave de sesión
+app.secret_key = 'QLL2AYJIS6FKVGWJKVKAKNHWV2ZCI63J' # Clave de sesión
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///agenda.db'
 db = SQLAlchemy(app)
 
 # --- CONFIGURACIÓN DE ACCESO DE SEGURIDAD ---
-# Contraseña de acceso por defecto (en producción usa hashes reales)
+# Contraseña de acceso por defecto
 PASSWORD_HASH = "scrypt:32768:8:1$hxlejYJbytJkrb1e$cb4f204ba86359b911f08ef20c65edf365766851cea478499d4efe723e6103ae5552279f91c4efd24ce8fb98e1ff05728c569f5bbe4bef84bf726b2e099e2b8d"
-# Clave base32 aleatoria para el 2FA (Guárdala bien. Puedes generar otra con pyotp.random_base32())
-TOTP_SECRET = "MZXW6YTBOIQ"
+# Clave base32 aleatoria para el 2FA (Se puede generar otra con pyotp.random_base32())
+TOTP_SECRET = "6NFLADNC76FMZUYIYK2FX6NA66OIYRBO"
 
 # Configuración del canal de ntfy
 NTFY_URL = "https://ntfy.sh/mi_agenda_raspi"
@@ -87,7 +88,7 @@ def index():
     
     eventos = Evento.query.order_by(Evento.fecha_hora).all()
     
-    # Interfaz de gestión con la estética oscura de tu Homer
+    # Interfaz de gestión
     return render_template_string('''
         <!DOCTYPE html>
         <html>
@@ -166,7 +167,7 @@ def logout():
     session.pop('autenticado', None)
     return redirect(url_for('login'))
 
-# --- UTILIDAD: GENERAR CÓDIGO QR PARA TU MÓVIL ---
+# --- UTILIDAD: GENERAR CÓDIGO QR PARA EL MÓVIL ---
 @app.route('/setup-2fa')
 def setup_2fa():
     # Esta ruta te genera el QR para escanear con Google Authenticator / Authy / Bitwarden
@@ -178,6 +179,10 @@ def setup_2fa():
     buf.seek(0)
     img_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')
     return f'<h2>Escanea este QR con tu app de autenticación móvil:</h2><img src="data:image/png;base64,{img_b64}">'
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True)
